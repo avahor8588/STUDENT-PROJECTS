@@ -1,0 +1,142 @@
+//
+//  lab.cpp
+//  proj2
+//
+//  Created by Aamil Vahora on 3/6/22.
+//
+
+#include "Lab.h"
+
+//Constants (additional constants allowed)
+//const string PROJ2_DATA = "proj2_data.txt"; //File constant
+//const int START_ELEMENTS = 100; //For testing
+//No additional functions allowed
+
+Lab::Lab(){
+    LabTitle();
+    LoadSubstances();
+    
+} //Default Constructor
+// Name: LoadSubstances
+// Desc - Loads each substance into m_substances from file
+//        The loads all substances from m_substances into m_myChemist's substance array
+// Preconditions - Requires file with valid substance data
+// Postconditions - m_substance is populated with substance structs
+void Lab::LoadSubstances(){
+    
+    string name;
+    string type;
+    string form;
+    string sub1;
+    string sub2;
+    int quantity = 0;
+    
+
+    
+    
+    ifstream substance_sheet("proj2_data.txt");
+      if (substance_sheet.is_open()){
+	for (int i =0 ; i < PROJ2_SIZE; i++ ){
+          getline(substance_sheet,name, ',' );
+          getline(substance_sheet,type, ',' );
+          getline(substance_sheet,form, ',' );
+          getline(substance_sheet,sub1, ',' );
+          getline(substance_sheet,sub2);
+
+          Substance object(name, type, form, sub1, sub2, quantity);
+          m_substances[i] = object;
+         
+          
+          cout << m_substances[i].m_type << " ";
+          cout << m_substances[i].m_formula << " ";
+          cout << m_substances[i].m_substance1 << " ";
+          cout << m_substances[i].m_substance2 << " ";
+          cout << m_substances[i].m_quantity << endl;
+
+          
+        }
+
+          cout << PROJ2_SIZE << " HAH NIGGA. " << endl;
+      }
+
+}
+// Name: StartLab()
+// 1. Displays Lab Title (as implemented below)
+// 2. Loads all substances and their recipes into m_substances (Load Substances)
+// 3. Asks user for their chemist's name (store in m_myChemist as m_myName)
+// 4. Copies all substances from m_substances into the chemist's substance array
+// 5. Manages the game itself including win conditions continually calling the main menu
+// Preconditions - None
+// Postconditions - m_substances and m_myChemist's substances populated
+void Lab::StartLab(){
+    
+}
+// Name: DisplayMySubstances()
+// Desc - Iterates over m_myChemist's substances
+// Preconditions - Player's chemist has substances
+// Postconditions - Displays a numbered list of substances
+void Lab::DisplaySubstances(){
+    
+}
+// Name: MainMenu()
+// Desc - Displays and manages menu
+// Preconditions - Player has an Chemist
+// Postconditions - Returns number including exit
+int Lab::MainMenu(){
+    
+    return 0;
+}
+// Name: SearchSubstances()
+// Desc - Attempts to search for raw substances (must be type "element")
+// Preconditions - Raw substances loaded
+// Postconditions - Increases quantity in Chemist's posession of substances
+void Lab::SearchSubstances(){
+    
+}
+// Name: CombineSubstances()
+// Desc - Attempts to combine known substances. If combined, quantity of substance decreased
+// 1. Requests user to choose two substances (RequestSubstance)
+// 2. Checks to see if formula exists for combining two chosen substances
+//     (checks sub1, sub2 and sub2, sub1) using SearchFormula
+// 3. If there is an available formula for two chosen substances, checks
+//     quantity for two chosen substance.
+// If no quantity for two substances, tells user that there is no available quantity
+// If quantity is available, decreases quantity for two chosen substances
+//     from the chemist then increases new substance
+// 4. If there is no available formula, tells user that nothing happens when you try and merge two chosen substances
+// Preconditions - Chemist is populated with substances
+// Postconditions - Increments quantity of substance "made", decreases quantity of source items
+void Lab::CombineSubstances(){
+    
+}
+// Name: RequestSubstance()
+// Desc - Allows the user to choose a substance to try and merge.
+//        Returns the index of chosen substance
+// Preconditions - Chemist has substances to try and merge
+// Postconditions - Returns integer of substance selected by user
+void Lab::RequestSubstance(int &choice){
+    
+}
+// Name: SearchFormula()
+// Desc - Searches formulas for two strings (name of item)
+// Preconditions - m_substances is populated
+// Postconditions - Returns int index of matching formula
+int Lab::SearchFormulas(string, string){
+    
+    
+    return 0;
+    
+}
+// Name: CalcScore()
+// Desc - Displays current score for Chemist
+// Preconditions - Chemist is populated with substances
+// Postconditions - Displays total number of substances found. Displays
+//        percentange found as number found divided by total available
+void Lab::CalcScore(){
+    
+}
+// Name: LabTitle()
+// Desc - Title for Lab (Do not edit)
+// Preconditions - None
+// Postconditions - None
+
